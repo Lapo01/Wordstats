@@ -74,7 +74,7 @@ for i, item1 in enumerate(lowercase):
 for i, item1 in enumerate(uppercase):
 	for item2 in data:
 		if item2 == item1:
-			count[i] = count[i]+1
+			count[i] += +1
 
 	
 count = [ii/sum(count) for ii in count]
