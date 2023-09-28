@@ -1,0 +1,2 @@
+Faccio questo script di prova per verificare connessione github-terminale
+
