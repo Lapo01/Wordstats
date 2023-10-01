@@ -37,7 +37,8 @@ def process_file(file_path):
 		data = input_file.read()
 	logger.info(f'Done, {len(data)} character(s) found.')
 	
-	
+
+
 
 if __name__ == '__main__': # will only be executed if from command line, if imported it won't
 	args = parser.parse_args()  
@@ -58,23 +59,37 @@ if args.noIntro:
 	a = data.split('*** START OF THE PROJECT GUTENBERG EBOOK THE REPUBLIC ***')
 	data = a[1]
 
+data = list(data)
 
 for i, item1 in enumerate(lowercase):
-	for item2 in data:
+	for j, item2 in enumerate(data):
 		if item2 == item1:
 			count[i]+=1
+			data[j] = ''
 		if item2 == 'è' or item2 =='é' :
 			count[5] +=1 
+			data[j] = ''
 		if item2 == 'à' :
 			count[1]+=1
+			data[j] = ''
 		if item2 == 'ò':
 			count[15]+=1
+			data[j] = ''
 		if item2 =='ù':
 			count[21]+=1
+			data[j] = ''
+			
+
+data = ''.join(data)
+data = list(data)
+logger.info(f'Data lenght is {len(data)}')	
+
 for i, item1 in enumerate(uppercase):
-	for item2 in data:
+	for j,item2 in enumerate(data):
 		if item2 == item1:
 			count[i] += +1
+			data[j] = ''
+			
 
 	
 count = [ii/sum(count) for ii in count]
